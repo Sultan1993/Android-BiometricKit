@@ -54,7 +54,7 @@ dependencies {
 }
 ```
 
-####Android X
+#### Android X
 
 To create Android X Biometric Prompt you need to create <b>BiometricXBuilder</b> class instance. Here you define properties of the prompt. Most of the methods are self-explanatory, however, you want to read more, open to <a href="https://developer.android.com/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder?hl=ru">AndroidX BiometricPrompt documentation</a>
 
@@ -80,7 +80,7 @@ To show your prompt in Fragment:
 biometricXManager.authenticate(fragment, authenticationCallback, compatibilityCallback)
 ```
 
-####FingerprintManagerCompat
+#### FingerprintManagerCompat
 
 To create custom biometrics dialog you need to create <b>BiometricBuilder</b> class instance. Here you define properties of the dialog.
 
