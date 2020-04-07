@@ -21,12 +21,31 @@ This is how FingerprintManagerCompat custom dialog looks (in case you obtained f
 
 ## Usage
 
-This library is super easy to use. Download it and import it to your project. If you want to import it as a module, just add this line to your app's build.gradle.
+Add jitpack.io to your project's build.gradle repositories:
+
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+Now add this line your app's gradle dependencies:
 
 ```gradle
 dependencies {
-    ...
-    implementation project(":biometrickit")
-    ...
+	...
+	implementation 'com.github.Sultan1993:Android-BiometricKit:1.0.0'
+	...
+}
+```
+
+Alternatively, you can downlaod the project and customize you dialog as you want. Download the source code and import it to your project. In case you want to import it as a module, download the project, click "Import module..", choose <b>biometrickit</b> folder and then add this line to your app's build gradle.
+
+```gradle
+dependencies {
+	implementation project(":biometrickit")
 }
 ```
