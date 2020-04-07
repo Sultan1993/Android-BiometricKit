@@ -1,0 +1,15 @@
+R_DEF: Internal format may change without notice
+local
+anim fade_in
+anim fade_out
+color colorPrimary
+drawable biometric_kit_bg_dialog
+drawable biometric_kit_ic_fingerprint
+id descriptionLabel
+id fingerprintIcon
+id negativeButton
+id subtitleLabel
+id titleLabel
+layout biometric_kit_dialog_fingerprint
+style AlertTheme
+style BaseAlertDialogTheme
