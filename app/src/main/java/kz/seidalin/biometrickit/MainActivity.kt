@@ -3,10 +3,14 @@ package kz.seidalin.biometrickit
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import kz.seidalin.biometrickit.BiometricKit
+import kz.seidalin.biometrickit.R
 import kz.seidalin.biometrickit.android.BiometricManager
 import kz.seidalin.biometrickit.androidx.BiometricXManager
 
-class MainActivity : AppCompatActivity(), BiometricKit.CompatibilityCallback, BiometricKit.AuthenticationCallback {
+class MainActivity : AppCompatActivity(),
+    BiometricKit.CompatibilityCallback,
+    BiometricKit.AuthenticationCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,11 +18,12 @@ class MainActivity : AppCompatActivity(), BiometricKit.CompatibilityCallback, Bi
 
         authButton.setOnClickListener {
             val biometricManager = BiometricManager.BiometricBuilder(this)
-                    .setTitle("Here goes title. It's required")
-                    .setNegativeButtonText("Here goes dismiss button text. It's required")
-                    .setSuccessText("Title after authentication succeeds. It's optional")
-                    .setErrorTitle("Title after authentication fails. It's optional")
-                    .setErrorSubtitle("Subtitle after authentication fails. It's optional")
+                    .setTitle("Dialog title. It's required")
+                    .setSubtitle("Dialog subtitle. It' optional")
+                    .setNegativeButtonText("Dialog dismiss button text. It's required")
+                    .setSuccessText("Dialog success authentication text. It's optional")
+                    .setErrorTitle("Dialog error text. It's optional")
+                    .setErrorSubtitle("Dialog error subtitle text. It's optional")
                     .build()
 
             biometricManager.authenticate(this, this)
@@ -26,9 +31,9 @@ class MainActivity : AppCompatActivity(), BiometricKit.CompatibilityCallback, Bi
 
         authXButton.setOnClickListener {
             val biometricXManager = BiometricXManager.BiometricXBuilder(this)
-                    .setTitle("Here goes title. It's required")
-                    .setSubtitle("Here goes subtitle. It's required")
-                    .setNegativeButtonText("Here goes dismiss button text. It's required")
+                    .setTitle("Dialog title. It's required")
+                    .setNegativeButtonText("Dialog dismiss button text. It's required")
+                    .setSubtitle("Dialog subtitle. It's optional")
                     .setDescription("Description for user. It's optional")
                     //if true, system will ask for additional confirmation (pattern or system pin code)
                     //if false, you have to provide you own way of authentication (eg: in app pin code)
