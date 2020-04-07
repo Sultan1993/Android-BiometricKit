@@ -77,18 +77,18 @@ To create custom biometrics dialog you need to create <b>BiometricBuilder</b> cl
 
 ```kotlin
 val biometricManager = BiometricManager.BiometricBuilder(this)
-		.setTitle("Dialog title. It's required")
-		.setNegativeButtonText("Dismiss button. It's required")
-		.setSubtitle("Dialog subtitle. It' optional")
+    .setTitle("Dialog title. It's required")
+    .setNegativeButtonText("Dismiss button. It's required")
+    .setSubtitle("Dialog subtitle. It' optional")
 
-		//success text will be shown if auth succeeds
-		.setSuccessText("Success authentication text. It's optional")
+    //success text will be shown if auth succeeds
+    .setSuccessText("Success authentication text. It's optional")
 
-		//error title and subtitle will be shown if auth fails for some reason
-		//if you don't provide them, system error text will be shown
-		.setErrorTitle("Error authentication title. It's optional")
-		.setErrorSubtitle("Error authentication subtitle. It's optional")
-		.build()
+    //error title and subtitle will be shown if auth fails for some reason
+    //if you don't provide them, system error text will be shown
+    .setErrorTitle("Error authentication title. It's optional")
+    .setErrorSubtitle("Error authentication subtitle. It's optional")
+    .build()
 ```
 
 To show your dialog:
@@ -105,39 +105,39 @@ Both of them are interfaces which return callbacks. Authentication callback as i
 ```kotlin
 object : BiometricKit.AuthenticationCallback {
 
-	override fun onAuthenticationFailed() {
-		/*  
-		*  Will be called if the fingerprint doesn’t match with any of the fingerprints registered on the device
-		*/        
-	}
-
-	override fun onAuthenticationCancelled() {
+    override fun onAuthenticationFailed() {
         /*  
-		*  Will be called if the authentication was cancelled by the user
-		*/          
-	}
+        *  Will be called if the fingerprint doesn’t match with any of the fingerprints registered on the device
+        */        
+    }
 
-	override fun onAuthenticationSuccessful() {
+    override fun onAuthenticationCancelled() {
         /*  
-		*  Will be called if the fingerprint has been successfully matched with one of the fingerprints in the device
-		*/           
-	}
+        *  Will be called if the authentication was cancelled by the user
+        */          
+    }
 
-	override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
-		/*  
-		*  This method is called when a non-fatal error has occurred during the authentication 
-		* process. The callback will be provided with an help code to identify the cause of the 
-		* error, along with a help message.
-		*/         
-	}
+    override fun onAuthenticationSuccessful() {
+        /*  
+        *  Will be called if the fingerprint has been successfully matched with one of the fingerprints in the device
+        */           
+    }
 
-	override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
-		/*  
-		* When an unrecoverable error has been encountered and the authentication process has 
-		* completed without success, then this callback will be triggered. The callback is provided 
-		* with an error code to identify the cause of the error, along with the error message. 
-		*/           
-	}
+    override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
+        /*  
+        *  This method is called when a non-fatal error has occurred during the authentication 
+        * process. The callback will be provided with an help code to identify the cause of the 
+        * error, along with a help message.
+        */         
+    }
+
+    override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
+        /*  
+        * When an unrecoverable error has been encountered and the authentication process has 
+        * completed without success, then this callback will be triggered. The callback is provided 
+        * with an error code to identify the cause of the error, along with the error message. 
+        */           
+    }
 }
 ```
 
@@ -145,24 +145,24 @@ object : BiometricKit.AuthenticationCallback {
 ```kotlin
 object : BiometricKit.CompatibilityCallback {
 
-	override fun onBiometricAuthenticationNotSupported() {
-		/*  
-		*  Will be called if the device SDK version does not support Biometric authentication or 
-		*  if the device does not contain any fingerprint sensors 
-		*/
-	}
-
-	override fun onBiometricAuthenticationNotAvailable() {
+    override fun onBiometricAuthenticationNotSupported() {
         /*  
-		*  Will be called if the device does not have any biometrics registered in the device 
-		*/  
-	}
+        *  Will be called if the device SDK version does not support Biometric authentication or 
+        *  if the device does not contain any fingerprint sensors 
+        */
+    }
 
-	override fun onBiometricAuthenticationPermissionNotGranted() {
+    override fun onBiometricAuthenticationNotAvailable() {
         /*  
-		*  Will be called if biometrics permissions were not granted to the app
-		*/      
-	}
+        *  Will be called if the device does not have any biometrics registered in the device 
+        */  
+    }
+
+    override fun onBiometricAuthenticationPermissionNotGranted() {
+        /*  
+        *  Will be called if biometrics permissions were not granted to the app
+        */      
+    }
 }
 ```
 
