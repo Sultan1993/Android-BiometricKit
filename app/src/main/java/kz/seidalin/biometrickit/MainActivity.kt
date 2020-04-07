@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(),
             val biometricManager = BiometricManager.BiometricBuilder(this)
                     .setTitle("Dialog title. It's required")
                     .setSubtitle("Dialog subtitle. It' optional")
-                    .setNegativeButtonText("Dismiss button. It's required")
+                    .setNegativeButtonText("Dismiss button")
                     .setSuccessText("Dialog success authentication text. It's optional")
                     .setErrorTitle("Dialog error text. It's optional")
                     .setErrorSubtitle("Dialog error subtitle text. It's optional")
