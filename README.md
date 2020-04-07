@@ -4,16 +4,20 @@ This library provides an easy way to implement fingerprint authentication withou
 
 This library wraps around <a href="https://developer.android.com/jetpack/androidx/releases/biometric">AndroidX Biometric 1.0.1</a> in case you want to use biometric dialog provided by Android system. It will use biometrics according to user's settings (it could be fingerprint, iris, etc), whatever manufacturer provided as SECURE. For example, on some devices FaceID is flagged as NOT SECURE by manufacturer (they can be tricked using your photo). However, Goodle didn't provide us with the prompt or dialog for devices with in-display fingerprint sensor (eg: OnePlus 6T, 7, 7T, Galaxy S10, S20, etc). AndroidX shows you fingerprint icon at the bottom of the display for such devices.
 
-This is AndroidX Biometric Prompt looks:
+This is how AndroidX Biometric Prompt looks:
 <p><a href="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/1.png" target="_blank"><img src="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/1.png" width="250" style="max-width:100%;"></a></p>
 
-This is AndroidX Biometric Prompt looks on devices with in-display fingerprint scanner:
+This is how AndroidX Biometric Prompt looks on devices with in-display fingerprint scanner:
 <p><a href="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/2.jpg" target="_blank"><img src="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/2.jpg" width="250" style="max-width:100%;"></a></p>
 
 In case you want full control over the biometrics prompt and have consistency across devices, please you <a href="https://developer.android.com/reference/android/support/v4/hardware/fingerprint/FingerprintManagerCompat">FingerprintManagerCompat</a> option. Although deprecated, it still has some advantages until AndroidX has minor problems with in-display sensors.
 
 This is how FingerprintManagerCompat custom dialog looks (in case you obtained full source code of this library, you can customize this dialog as you want. It's just a subclass of Android Dialog):
-<p><a href="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/3.png" target="_blank"><img src="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/3.png" width="250" style="max-width:100%;"></a></p>
+
+This is how FingerprintManagerCompat dialog looks both on regular and in-display fingerprint sensors:
+<p><a href="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/3.png" target="_blank"><img src="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/3.png" width="250" style="max-width:100%;"></a>
+<a href="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/4.jpg" target="_blank"><img src="https://github.com/Sultan1993/Android-BiometricKit/blob/master/screenshots/4.jpg" width="250" style="max-width:100%;"></a>
+</p>
 
 ## Requirements
 - AndroidX artifacts
