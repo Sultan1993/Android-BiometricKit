@@ -16,10 +16,10 @@ In case you want full control over the biometrics prompt and have consistency ac
 
 ```gradle
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 
@@ -27,9 +27,9 @@ allprojects {
 
 ```gradle
 dependencies {
-	...
-	implementation 'com.github.Sultan1993:Android-BiometricKit:1.0.1'
-	...
+    ...
+    implementation 'com.github.Sultan1993:Android-BiometricKit:1.0.1'
+    ...
 }
 ```
 
@@ -41,7 +41,7 @@ Alternatively, you can downlaod the project and customize you dialog as you want
 
 ```gradle
 dependencies {
-	implementation project(":biometrickit")
+    implementation project(":biometrickit")
 }
 ```
 
@@ -51,13 +51,13 @@ To create Android X Biometric Prompt you need to create <b>BiometricXBuilder</b>
 
 ```kotlin
 val biometricXManager = BiometricXManager.BiometricXBuilder(context)
-		.setTitle("Dialog title. It's required")
-		.setNegativeButtonText("Dialog dismiss button text. It's required")
-		.setSubtitle("Dialog subtitle. It's optional")
-		.setDescription("Description for user. It's optional")
-        .setDeviceCredentialsAllowed(false)
-		.setConfirmationRequired(false)
-		.build()
+    .setTitle("Dialog title. It's required")
+    .setNegativeButtonText("Dialog dismiss button text. It's required")
+    .setSubtitle("Dialog subtitle. It's optional")
+    .setDescription("Description for user. It's optional")
+    .setDeviceCredentialsAllowed(false)
+    .setConfirmationRequired(false)
+    .build()
 ```
 
 To show your prompt in Activity, you have to call authenticate (see below for callback's definition):
