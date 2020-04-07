@@ -42,7 +42,7 @@ class BiometricManager(private val biometricBuilder: BiometricBuilder) {
 
     fun authenticate(
         authenticationCallback: BiometricKit.AuthenticationCallback,
-        biometricCallback: BiometricKit.CompatibilityCallback? = null
+        compatibilityCallback: BiometricKit.CompatibilityCallback? = null
     ) {
         if (biometricBuilder.title == null) {
             throw IllegalArgumentException("Biometric Dialog title cannot be null")
@@ -53,22 +53,22 @@ class BiometricManager(private val biometricBuilder: BiometricBuilder) {
         }
 
         if (!BiometricUtils.isSdkVersionSupported) {
-            biometricCallback?.onBiometricAuthenticationNotSupported()
+            compatibilityCallback?.onBiometricAuthenticationNotSupported()
             return
         }
 
         if (!BiometricUtils.isPermissionGranted(context)) {
-            biometricCallback?.onBiometricAuthenticationPermissionNotGranted()
+            compatibilityCallback?.onBiometricAuthenticationPermissionNotGranted()
             return
         }
 
         if (!BiometricUtils.isHardwareSupported(context)) {
-            biometricCallback?.onBiometricAuthenticationNotSupported()
+            compatibilityCallback?.onBiometricAuthenticationNotSupported()
             return
         }
 
         if (!BiometricUtils.isFingerprintAvailable(context)) {
-            biometricCallback?.onBiometricAuthenticationNotAvailable()
+            compatibilityCallback?.onBiometricAuthenticationNotAvailable()
             return
         }
 

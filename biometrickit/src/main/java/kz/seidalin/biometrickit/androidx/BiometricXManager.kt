@@ -24,26 +24,26 @@ class BiometricXManager(private val biometricBuilder: BiometricXBuilder) {
     fun authenticate(
         fragment: Fragment,
         authenticationCallback: BiometricKit.AuthenticationCallback,
-        biometricCallback: BiometricKit.CompatibilityCallback? = null
+        compatibilityCallback: BiometricKit.CompatibilityCallback? = null
     ) {
         when (biometricManager.canAuthenticate()) {
             BiometricManager.BIOMETRIC_SUCCESS -> auth(fragment, authenticationCallback)
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> biometricCallback?.onBiometricAuthenticationNotSupported()
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> biometricCallback?.onBiometricAuthenticationNotAvailable()
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> biometricCallback?.onBiometricAuthenticationNotAvailable()
+            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> compatibilityCallback?.onBiometricAuthenticationNotSupported()
+            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> compatibilityCallback?.onBiometricAuthenticationNotAvailable()
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> compatibilityCallback?.onBiometricAuthenticationNotAvailable()
         }
     }
 
     fun authenticate(
         fragmentActivity: FragmentActivity,
         authenticationCallback: BiometricKit.AuthenticationCallback,
-        biometricCallback: BiometricKit.CompatibilityCallback? = null
+        compatibilityCallback: BiometricKit.CompatibilityCallback? = null
     ) {
         when (biometricManager.canAuthenticate()) {
             BiometricManager.BIOMETRIC_SUCCESS -> auth(fragmentActivity, authenticationCallback)
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> biometricCallback?.onBiometricAuthenticationNotSupported()
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> biometricCallback?.onBiometricAuthenticationNotAvailable()
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> biometricCallback?.onBiometricAuthenticationNotAvailable()
+            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> compatibilityCallback?.onBiometricAuthenticationNotSupported()
+            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> compatibilityCallback?.onBiometricAuthenticationNotAvailable()
+            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> compatibilityCallback?.onBiometricAuthenticationNotAvailable()
         }
     }
 

@@ -3,8 +3,6 @@ package kz.seidalin.biometrickit
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
-import kz.seidalin.biometrickit.BiometricKit
-import kz.seidalin.biometrickit.R
 import kz.seidalin.biometrickit.android.BiometricManager
 import kz.seidalin.biometrickit.androidx.BiometricXManager
 
@@ -20,7 +18,7 @@ class MainActivity : AppCompatActivity(),
             val biometricManager = BiometricManager.BiometricBuilder(this)
                     .setTitle("Dialog title. It's required")
                     .setSubtitle("Dialog subtitle. It' optional")
-                    .setNegativeButtonText("Dialog dismiss button text. It's required")
+                    .setNegativeButtonText("Dismiss button. It's required")
                     .setSuccessText("Dialog success authentication text. It's optional")
                     .setErrorTitle("Dialog error text. It's optional")
                     .setErrorSubtitle("Dialog error subtitle text. It's optional")
