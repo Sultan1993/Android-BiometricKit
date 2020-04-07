@@ -37,7 +37,7 @@ allprojects {
 ```gradle
 dependencies {
 	...
-	implementation 'com.github.Sultan1993:Android-BiometricKit:1.0.0'
+	implementation 'com.github.Sultan1993:Android-BiometricKit:1.0.1'
 	...
 }
 ```
